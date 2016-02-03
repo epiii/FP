@@ -1,10 +1,18 @@
+	// cek compatibility with browser
+	// listProduct();
+	// var smoother = new Smoother([0.9999999, 0.9999999, 0.999, 0.999], [0, 0, 0, 0]),
+	// var smoother = new Smoother([0.3333333, 0.3333333, 0.333, 0.333], [0, 0, 0, 0]),
+	// var smoother = new Smoother([0.5555555, 0.5555555, 0.555, 0.555], [0, 0, 0, 0]),
+	// var smoother = new Smoother([0.6666666, 0.6666666, 0.666, 0.666], [0, 0, 0, 0]),
+	// var smoother = new Smoother([0.7777777, 0.7777777, 0.777, 0.777], [0, 0, 0, 0]),
+
 // with smoother
 var sizeArr =[
-		{label:"S",min:320,max:349},
-		{label:"M",min:350,max:379},
-		{label:"L",min:380,max:409},
-		{label:"XL",min:410,max:439},
-		{label:"XXL",min:440,max:469},
+		{label:"S",min:320,max:349,minCM:40,maxCM:41.9},
+		{label:"M",min:350,max:378,minCM:42,maxCM:43.9},
+		{label:"L",min:380,max:409,minCM:44,maxCM:45.9},
+		{label:"XL",min:410,max:439,minCM:46,maxCM:47.9},
+		// {label:"XXL",min:440,max:469,minCM:349,maxCM:349},
 			// {label:"S",min:140,max:160},
 			// {label:"M",min:150,max:170},
 			// {label:"L",min:160,max:180},
@@ -22,18 +30,14 @@ function loopLog () {
 	$('#fpsInfo').html(iPlayLoop);
 	iPlayLoop=0;
 }
+
+
+
+
 window.onload = function() {
 	sizeList();
 	var detectLib = objectdetect.upperbody;
-
-	// listProduct();
-	// cek compatibility with browser
-	// var smoother = new Smoother([0.9999999, 0.9999999, 0.999, 0.999], [0, 0, 0, 0]),
-	// var smoother = new Smoother([0.3333333, 0.3333333, 0.333, 0.333], [0, 0, 0, 0]),
 	var smoother = new Smoother([0.4444444, 0.4444444, 0.444, 0.444], [0, 0, 0, 0]),
-	// var smoother = new Smoother([0.5555555, 0.5555555, 0.555, 0.555], [0, 0, 0, 0]),
-	// var smoother = new Smoother([0.6666666, 0.6666666, 0.666, 0.666], [0, 0, 0, 0]),
-	// var smoother = new Smoother([0.7777777, 0.7777777, 0.777, 0.777], [0, 0, 0, 0]),
 		video = document.getElementById('video'),
 		shirt = document.getElementById('shirt'),
 		// fullscreenbtn = document.getElementById('fullscreenbtn'),
@@ -252,7 +256,7 @@ function drawThumbnail () {
 function sizeList () {
 	var li='';
 	$.each(sizeArr,function  (id,item) {
-		li+='<li>'+item.label+' ('+item.min+' - '+item.max+')</li>';
+		li+='<li>'+item.label+' ('+item.minCM+' s/d '+item.maxCM+' cm)</li>';
 	});$('#sizeList').html(li);
 }
 	
