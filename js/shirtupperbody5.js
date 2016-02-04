@@ -22,8 +22,7 @@ window.onload=function(){
 		detector;
 
 	/*call function*/
-	listProduct();
-	sizeList();
+	listProduct();sizeList();
 	checkWebcam();
 
 	function ajax (u,d) {
@@ -118,11 +117,9 @@ window.onload=function(){
 		sizeRealTime();
 	}
 
-	function selectShirt (src) {
-		console.log('masuk select shirt='+src);
-		shirt.src=src+'.png';
-		console.log(shirt);
-	}
+	// function selectShirt(src) {
+	// 	shirt.src=src+'.png';
+	// }
 
 	function listProduct () {
 		console.log('masuk list product');
@@ -131,11 +128,11 @@ window.onload=function(){
 			else{
 				var li='';
 				$.each(dt.data, function (id,item) {
-					li+='<img onclick="selectShirt(\''+item.name+'\');" src="'+dirx+item.name+'.png" style="width: 117px;">';
+					li+='<img onclick="shirt.src=\'img/img2/'+item.name+'.png\'" src="'+dirx+item.name+'.png" style="width: 117px;">';
 				});$('#list').html(li);
 
-				shirt.src=dt.data[0].name+'.png';
-				selectShirt(dt.data[0].name);		
+				var defaultProduct=dirx+dt.data[0].name+'.png';
+				shirt.src=defaultProduct;
 			}
 		});
 	}
